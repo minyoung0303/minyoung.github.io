@@ -1,7 +1,10 @@
-function Introduction() {
+// Hero.jsx 파일에는 자기소개, 한줄 요약
+// (예: "Python/Django 백엔드 전문 개발자"), 프로필 사진 또는 애니메이션 배경 넣기
+
+ function Hero() {
   return (
-    <section id="introduction">
-      <h2>Introduction</h2>
+    <section id="hero">
+      <h2>Hero</h2>
 
       <p>
         Django 기반의 웹 서비스를 개발하며, 
@@ -23,4 +26,4 @@ function Introduction() {
   )
 }
 
-export default Introduction
+export default Hero

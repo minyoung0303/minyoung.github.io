@@ -1,9 +1,9 @@
-// Projects: 4-6개 주요 프로젝트(라이브 데모, GitHub 링크, 기술 설명, 성능 최적화 사례 강조).
+// Experience.jsx -- 경력 타임라인, 인증서, 오픈소스 기여 등 서술
 
-function Projects() {
+function Experience() {
   return (
-    <section id="projects">
-      <h3>Projects</h3>
+    <section id="experience">
+      <h3>Experience</h3>
 
       <article>
         <h3>Django 기반 웹 서비스</h3>
@@ -52,4 +52,4 @@ function Projects() {
   )
 }
 
-export default Projects
+export default Experience

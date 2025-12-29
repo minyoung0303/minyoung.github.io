@@ -1,7 +1,9 @@
+// About: 경력, 기술 스택(Backend: Django/PostgreSQL, Frontend: React), 교육 배경 등
+
 function About() {
   return (
     <section id="about">
-      <h2>About Me</h2>
+      <h2>MIN YOUNG LEE</h2>
 
       <p>
         컴퓨터공학 전공으로 웹 개발의 기본기를 학습했으며,

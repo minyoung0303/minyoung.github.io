@@ -1,3 +1,5 @@
+// Contact: 이메일, LinkedIn, GitHub, 다크/라이트 모드 토글.
+
 function Contact() {
   return (
     <section id="contact">
