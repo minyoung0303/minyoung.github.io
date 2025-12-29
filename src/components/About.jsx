@@ -1,25 +1,34 @@
 // About: 경력, 기술 스택(Backend: Django/PostgreSQL, Frontend: React), 교육 배경 등
+// - 3~4줄 요약 소개
+// - Backend / Frontend / Infra 스택 분리
+// - 교육 or 성장 경로 (SSAFY 등)
 
 function About() {
   return (
     <section id="about">
-      <h2>MIN YOUNG LEE</h2>
 
-      <p>
-        컴퓨터공학 전공으로 웹 개발의 기본기를 학습했으며,
-        백엔드 개발자를 목표로 공부하고 있습니다.
-      </p>
+      <h2>About Me</h2>
 
-      <p>
-        ERP/EP 시스템을 활용한 실무 경험과
-        웹 개발 인턴 경험을 통해
-        단순 구현을 넘어 실제 업무 흐름을 이해하려 노력해왔습니다.
-      </p>
+      <div className="about-grid">
 
-      <p>
-        기술을 사용하는 이유와 문제를 해결하는 과정을 중요하게 생각하며,
-        팀과 함께 성장할 수 있는 개발자가 되는 것을 목표로 하고 있습니다.
-      </p>
+        <div>
+
+          <h3>Backend</h3>
+          Django, DRF, PostgreSQL
+
+        </div>
+
+        <div>
+          <h3>Frontend</h3>
+          React, Vite
+        </div>
+
+        <div>
+        <h3>Infra</h3>
+        AWS, Nginx
+        </div>
+        
+      </div>
     </section>
   )
 }

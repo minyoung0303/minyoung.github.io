@@ -1,10 +1,19 @@
-// Hero.jsx 파일에는 자기소개, 한줄 요약
+// Home.jsx 파일에는 자기소개, 한줄 요약
 // (예: "Python/Django 백엔드 전문 개발자"), 프로필 사진 또는 애니메이션 배경 넣기
+// [왼쪽]
+// - 이름
+// - 한 줄 요약
+//   "Python/Django 기반 백엔드 개발자"
+// - 짧은 서브 문장
+//   "성능과 구조를 고민하는 개발자입니다."
 
- function Hero() {
+// [오른쪽]
+// - 대표 프로젝트 3개 (카드 or 슬라이더)
+
+ function Home() {
   return (
-    <section id="hero">
-      <h2>Hero</h2>
+    <section id="home">
+      <h2>MIN YOUNG LEE</h2>
 
       <p>
         Django 기반의 웹 서비스를 개발하며, 
@@ -26,4 +35,4 @@
   )
 }
 
-export default Hero
+export default Home

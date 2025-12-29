@@ -1,3 +1,9 @@
+// Skills.jsx 파일에는 보유 기술 스택을 카테고리별로 정리
+
+// Python   Django   PostgreSQL
+// React    AWS      Git
+
+
 function Skills() {
   return (
     <section id="skills">

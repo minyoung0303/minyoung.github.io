@@ -1,4 +1,8 @@
 // Experience.jsx -- 경력 타임라인, 인증서, 오픈소스 기여 등 서술
+// 2024
+// - Django 서비스 구조 개선
+// - API 응답 속도 30% 개선
+
 
 function Experience() {
   return (
