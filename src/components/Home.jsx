@@ -10,7 +10,7 @@
 // [오른쪽]
 // - 대표 프로젝트 3개 (카드 or 슬라이더)
 
- function Home() {
+function Home() {
   return (
     <section id="home" className="home">
       <div className="home-left">

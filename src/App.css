@@ -1,7 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0rem;
   text-align: center;
 }
 
@@ -12,10 +12,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #0dff05be);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #07ce00be);
 }
 
 @keyframes logo-spin {
@@ -43,32 +43,39 @@
 
 .home {
   min-height: 100vh;
-  background-color: #0b0f0e;
+  width: 100vw;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 0 8%;
+}
+
+.home-inner {
+  text-align: center;
 }
 
 .home-name {
   font-size: 4rem;
   font-weight: 800;
-  color: #4ade80;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  color: #2c4d3a; /* 제목 */
 }
 
 .home-title {
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #e5e7eb;
+  color: #2c4d3a;
+  /* 서브 타이틀 */
 }
 
 .home-title span {
-  color: #22c55e;
+  color: #2FA36B;
+  /* 강조 */
 }
 
 .home-desc {
-  margin-top: 1.5rem;
-  font-size: 1.1rem;
-  color: #a1a1aa;
+  margin-top: 1.2rem;
+  font-size: 1.15rem;
   line-height: 1.6;
+  color: #2c4d3a;
+  /* 본문 */
 }
