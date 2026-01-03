@@ -2,6 +2,7 @@
 // - 3~4줄 요약 소개
 // - Backend / Frontend / Infra 스택 분리
 // - 교육 or 성장 경로 (SSAFY 등)
+import './css/About.css';
 
 function About() {
   return (

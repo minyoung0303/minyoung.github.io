@@ -7,9 +7,11 @@
   padding-left: 20px;
 }
 
+
 .home-inner {
   text-align: center;
 }
+
 
 .home-name {
   font-size: 4rem;
@@ -18,6 +20,7 @@
   color: #2c4d3a; /* 제목 */
 }
 
+
 .home-title {
   margin-top: 1rem;
   font-size: 1.5rem;
@@ -25,10 +28,12 @@
   /* 서브 타이틀 */
 }
 
+
 .home-title span {
   color: #2FA36B;
   /* 강조 */
 }
+
 
 .home-desc {
   margin-top: 1.2rem;

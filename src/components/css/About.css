@@ -1,0 +1,28 @@
+#about {
+    min-height: 60vh;
+    width: 100vw;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+#about h2 {
+    font-size:2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+}
+
+#about p {
+    max-width: 720px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+}
+
+#about p + p {
+    margin-top: 0.4rem;
+}
