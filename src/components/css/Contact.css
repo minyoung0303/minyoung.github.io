@@ -1,0 +1,112 @@
+.contact {
+    height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.contact h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #2c4d3a;
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-content {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.icon-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #2c4d3a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fffde7;
+    text-decoration: none;
+    font-size: 24px;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.blog-initial {
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.icon-circle:hover {
+    transform: translateY(-2px);
+}
+
+.icon-circle.blog:hover {
+    background-color: #03c75a;
+    color:#fffde7
+}
+
+.icon-circle.github:hover {
+    background-color: #181717;
+    color:#fffde7
+}
+
+.icon-circle.linkedin:hover {
+    background-color: #0a66c2;
+    color:#fffde7
+}
+
+.icon-circle.email:hover {
+    background-color: #ff4343;
+    color: #fffde7;
+}
+
+.contact-preview {
+    flex: 1;
+    height: 100%;
+    max-width: 680px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.contact-preview img {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.contact-preview p {
+  color: #2c4d3a;
+  font-size: 0.95rem;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.contact-preview img.fade-in {
+  opacity: 1;
+}
+
+.contact-preview p.fade-out {
+  opacity: 0;
+}

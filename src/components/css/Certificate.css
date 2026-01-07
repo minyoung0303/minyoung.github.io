@@ -1,0 +1,56 @@
+.certificate {
+  height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.certificate h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #2c4d3a;
+  margin-bottom: 2rem;
+}
+
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 720px;
+}
+
+.cert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e8f0ec;
+}
+
+.cert-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c4d3a;
+  flex: 1;
+}
+
+.cert-date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2fa36b;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.cert-org {
+  font-size: 0.85rem;
+  color: #7b8794;
+  margin-top: 0.3rem;
+  font-weight: 400;
+}

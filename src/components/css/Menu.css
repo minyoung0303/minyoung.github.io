@@ -7,10 +7,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
+    padding: 0 max(1rem, 2vw);
+    padding-left: max(1rem, 2vw);
+    padding-right: max(1rem, 2vw);
     background: #1f3430;
     color: #f7f7f7;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
 }
 
 .menu-logo-text{
@@ -24,10 +27,9 @@
     display: flex;
     gap: 2rem;
     margin: 0;
-    padding: 0;
+    padding: 0 0.5rem 0 0;
 }
 
-/* 각 메뉴 아이템 스타일 */
 .menu-item {
     cursor: pointer;
     font-size: 0.95rem;
