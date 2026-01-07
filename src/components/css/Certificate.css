@@ -3,8 +3,7 @@
   padding: 80px 20px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  align-items: flex-start;
+  align-items: center;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -28,7 +27,7 @@
 .cert-item {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding-bottom: 2rem;
   border-bottom: 1px solid #e8f0ec;
 }
