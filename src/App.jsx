@@ -10,9 +10,32 @@ import Certificate from './components/Certificate';
 import Contact from './components/Contact';
 import './App.css';
 
-function App() {
+const pageOrder = [
+  'home', 'about', 'projects', 'skills',
+  'experience', 'certificate', 'contact'
+];
 
-  const [selectedPage, setSelectedPage] = useState('home');
+function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const selectedPage = pageOrder[currentIndex];
+  
+  const goPrev = () => {
+    setCurrentIndex((prev) =>
+    prev === 0 ? pageOrder.length - 1 : prev - 1
+    );
+  };
+
+  const goNext = () => {
+    setCurrentIndex((prev) => 
+    prev === pageOrder.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handleSelectPage = (page) => {
+    const idx = pageOrder.indexOf(page);
+    if (idx !== -1) setCurrentIndex(idx);
+  };
 
   const renderPage = () => {
     switch (selectedPage) {
@@ -37,10 +60,17 @@ function App() {
 
   return (
     <>
-      <Menu selectedPage={selectedPage} onSelectPage={setSelectedPage} />
+      <Menu selectedPage={selectedPage} onSelectPage={handleSelectPage} />
       <main className="content">
         {renderPage()}
       </main>
+
+        <button className="nav-arrow left" onClick={goPrev}>
+          ‹
+        </button>
+        <button className="nav-arrow right" onClick={goNext}>
+          ›
+        </button>
     </>
   );
 }

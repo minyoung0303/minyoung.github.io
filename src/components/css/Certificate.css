@@ -1,6 +1,5 @@
 .certificate {
-  height: 100vh;
-  padding: 80px 20px;
+  padding: 60px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,9 +10,9 @@
 .certificate h2 {
   font-size: 2.2rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: #2c4d3a;
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
 }
 
 .cert-list {
@@ -29,11 +28,10 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #e8f0ec;
 }
 
 .cert-name {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #2c4d3a;
   flex: 1;

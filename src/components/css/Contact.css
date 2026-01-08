@@ -1,6 +1,5 @@
 .contact {
-    height: 100vh;
-    padding: 80px 20px;
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,13 +13,13 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     color: #2c4d3a;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     flex-shrink: 0;
 }
 
 .contact-content {
     display: flex;
-    gap: 2rem;
+    gap: 4rem;
     width: 100%;
     flex: 1;
     align-items: flex-start;
@@ -29,8 +28,9 @@
 
 .contact-icons {
     display: flex;
-    gap: 32px;
-    align-items: center;
+    flex-direction: column;
+    gap: 100px;
+    align-items: flex-start;
     flex-shrink: 0;
 }
 
@@ -45,7 +45,7 @@
     color: #fffde7;
     text-decoration: none;
     font-size: 24px;
-    transition: background-color 0.5s ease, transform 0.5s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .blog-initial {
@@ -81,7 +81,7 @@
     flex: 1;
     height: 100%;
     max-width: 680px;
-    border-radius: 12px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,14 +93,14 @@
   width: 100%;
   height: auto;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 1s ease;
 }
 
 .contact-preview p {
   color: #2c4d3a;
   font-size: 0.95rem;
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity 1s ease;
 }
 
 .contact-preview img.fade-in {

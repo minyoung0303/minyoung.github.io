@@ -4,7 +4,7 @@ import './css/Certificate.css';
 function Certificate() {
   return (
     <section id="certificate" className="certificate">
-      <h2>자격증</h2>
+      <h2>기술 자격증</h2>
       
       <div className="cert-list">
         <div className="cert-item">
