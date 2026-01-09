@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useSpring, animated } from '@react-spring/web';
 
 import Menu from './components/Menu';
 import Home from './components/Home';
@@ -17,25 +18,53 @@ const pageOrder = [
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const selectedPage = pageOrder[currentIndex];
   
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
+    setDirection(-1);
     setCurrentIndex((prev) =>
-    prev === 0 ? pageOrder.length - 1 : prev - 1
+      prev === 0 ? pageOrder.length - 1 : prev - 1
     );
-  };
+  }, []);
 
-  const goNext = () => {
+  const goNext = useCallback(() => {
+    setDirection(1);
     setCurrentIndex((prev) => 
     prev === pageOrder.length - 1 ? 0 : prev + 1
     );
-  };
+  }, []);
 
-  const handleSelectPage = (page) => {
+  const handleSelectPage = useCallback((page) => {
     const idx = pageOrder.indexOf(page);
-    if (idx !== -1) setCurrentIndex(idx);
-  };
+    if (idx !== -1) {
+      setDirection(idx > currentIndex ? 1: -1);
+      setCurrentIndex(idx);
+    }
+  }, [currentIndex]);
+
+  useEffect(() => {
+    const handleWheel = (e) => {
+      e.preventDefault();
+      if (e.deltaY > 0) {
+        goNext();
+      } else {
+        goPrev();
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, [goNext, goPrev]);
+
+  const slideAnimation = useSpring({
+    from: { transform: direction > 0 ? 'translateX(100%)' : 'translateX(-100%)' },
+    to: { transform: 'translateX(0)' },
+    config: { tension: 300, friction: 30 },
+    reset: true
+  });
+  
 
   const renderPage = () => {
     switch (selectedPage) {
@@ -62,7 +91,9 @@ function App() {
     <>
       <Menu selectedPage={selectedPage} onSelectPage={handleSelectPage} />
       <main className="content">
-        {renderPage()}
+        <animated.div style={slideAnimation}>
+          {renderPage()}
+        </animated.div>
       </main>
 
         <button className="nav-arrow left" onClick={goPrev}>

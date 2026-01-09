@@ -54,14 +54,12 @@
   font-weight: bold;
   cursor: pointer;
   z-index: 50;
-  /* backdrop-filter: blur(10px); */
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: auto;
   outline: none;
-  border: none;
 }
 
 .nav-arrow:hover {
@@ -90,3 +88,10 @@
 .nav-arrow:active {
   outline: none;
 }
+
+.content {
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+

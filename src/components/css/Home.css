@@ -39,3 +39,40 @@
   line-height: 1.6;
   color: #2c4d3a;
 }
+
+.home-experience {
+  max-width: 720px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c4d3a;
+  margin-top: 2rem;
+  font-weight: 400;
+  text-align: left;
+  padding-left: 0;
+}
+
+.highlight {
+  color: #2fa36b;
+  font-weight: 600;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  background: rgba(47, 163, 107, 0.1);
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .home-experience {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-top: 1.8rem;
+    max-width: 90vw;
+  }
+
+  .home-name {
+    font-size: 2.8rem;
+  }
+}
