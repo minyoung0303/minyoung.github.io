@@ -1,28 +1,38 @@
-#about {
+.about {
     min-height: 60vh;
     width: 100vw;
     padding: 80px 130px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     box-sizing: border-box;
 }
 
-#about h2 {
-    font-size:2.2rem;
+.about h2 {
+    font-size: 2.2rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
 }
 
-#about p {
-    max-width: 720px;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 0.9rem;
+.chart-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    max-width: 800px;
 }
 
-#about p + p {
-    margin-top: 0.4rem;
+.achievement-item {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.timeline-tooltip {
+  background: rgba(6, 139, 64, 0.377);
+  border-radius: 12px;
+  padding: 1rem;
+  color: #ffffff;
+  min-width: 300px;
 }
