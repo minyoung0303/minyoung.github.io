@@ -64,7 +64,7 @@ function Contact() {
           className="fade-in"
           />
         ) : (
-          <p className="fade-out"> 아이콘에 마우스를 올리시면 예시 화면이 보여집니다. </p>
+          <p className="fade-in"> 아이콘에 마우스를 올리시면 예시 화면이 보여집니다. </p>
         )}
       </div>
       </div>

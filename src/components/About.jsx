@@ -94,19 +94,14 @@ function About() {
 
   const [hoveredExperience, setHoveredExperience] = useState(null);
 
-  /* ===============================
-     날짜 → month index 변환
-     =============================== */
   const BASE_YEAR = 2019;
+  const CURRENT_YEAR = new Date().getFullYear();
 
   const monthToIndex = (ym) => {
     const [y, m] = ym.split('-').map(Number);
     return (y - BASE_YEAR) * 12 + (m - 1);
   };
 
-  /* ===============================
-     차트용 데이터 변환
-     =============================== */
   const timelineData = experiences.map((exp) => ({
     name: exp.name,
     type: exp.type,
@@ -116,33 +111,47 @@ function About() {
     achievements: exp.achievements,
   }));
 
-  /* ===============================
-    호버 상태에 따른 높이 계산
-    =============================== */
-    const getBarHeight = (index, isHovered) => {
-      const baseHeight = 15;
-      const hoverHeight = baseHeight + 30;
-      return isHovered ? hoverHeight : baseHeight;
-    };
+  const MAX_MONTH_INDEX = (CURRENT_YEAR - BASE_YEAR + 1) * 12;
 
-  const TimelineBar = ({ x, y, height, width, payload, index }) => {
-    const barHeight = getBarHeight(index, hoveredExperience?.name === payload.name);
+  const yearTicks = Array.from(
+    { length: CURRENT_YEAR - BASE_YEAR + 1 },
+    (_, i) => i * 12
+  );
+
+  const formatYearTick = (value) =>
+    BASE_YEAR + Math.floor(value / 12);
+
+  const TimelineBar = ({ y, height, payload }) => {
+    const isHovered = hoveredExperience?.name === payload.name;
+
+    const baseHeight = 20;
+    const hoverHeight = 35;
+    const barHeight = isHovered ? hoverHeight : baseHeight;
+
     const unitWidth = 18;
     const startX = payload.start * unitWidth;
     const barWidth = Math.max((payload.end - payload.start + 1) * unitWidth, 8);
 
     return (
-      <g>
-        {hoveredExperience?.name === payload.name && (
+      <g
+      onMouseEnter={() =>
+        setHoveredExperience(
+          experiences.find((e) => e.name === payload.name)
+        )
+      }
+      onMouseLeave={() => setHoveredExperience(null)}
+      style={{ cursor: 'pointer' }}
+      >
+        {isHovered && (
           <rect
           x={startX - 6}
           y={y - 15}
           width={barWidth + 12}
           height={barHeight + 30}
           rx={8}
-          fill="rgba(255,255,255,0.1)"
+          fill="rgba(255, 255, 255, 0.1)"
           opacity={0.8}
-          style={{ transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)' }}
+          style={{ transition: 'all 0.3s ease', }}
           />
         )}
         
@@ -153,20 +162,10 @@ function About() {
           height={barHeight}
           rx={6}
           fill={COLORS[payload.type]}
-          stroke={hoveredExperience?.name === payload.name ? '#ffffff': 'transparent'}
-          strokeWidth={2}
-          className={`timeline-bar ${hoveredExperience?.name === payload.name ? 'hovered' : ''}`}
           style={{
-            transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-            cursor: 'pointer',
-            transformOrigin: 'center'
+            transition: 'all 0.3s ease',
+            transformOrigin: 'center',
           }}
-          onMouseEnter={() =>
-            setHoveredExperience(
-              experiences.find((e) => e.name === payload.name)
-            )
-          }
-          onMouseLeave={() => setHoveredExperience(null)}
           />
       </g>
     );
@@ -212,7 +211,7 @@ function About() {
             axisLine={false}
             tickLine={false}
           />
-          <Tooltip content={<CustomTooltip />} cursor={false} />
+          <Tooltip content={<CustomTooltip />} cursor={false} wrapperStyle={{ transition: 'transform 0.2s ease', }}/>
           <Bar dataKey="end" shape={<TimelineBar />} />
         </BarChart>
       </ResponsiveContainer>

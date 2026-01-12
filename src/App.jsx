@@ -44,20 +44,6 @@ function App() {
     }
   }, [currentIndex]);
 
-  useEffect(() => {
-    const handleWheel = (e) => {
-      e.preventDefault();
-      if (e.deltaY > 0) {
-        goNext();
-      } else {
-        goPrev();
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
-  }, [goNext, goPrev]);
-
   const slideAnimation = useSpring({
     from: { transform: direction > 0 ? 'translateX(100%)' : 'translateX(-100%)' },
     to: { transform: 'translateX(0)' },
