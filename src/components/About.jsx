@@ -15,19 +15,34 @@ import {
 
 function About() {
   const COLORS = {
-    경력: '#108d20',
-    교육: '#5e8cee',
-    자격증: '#2fa36b',
-    학력: '#80dfa7',
+    경력: '#1f5e3b',
+    교육: '#3f7f5f',
+    자격증: '#2ea36a',
+    학력: '#b9e6cf',
   };
+  
+  const BASE_YEAR = 2019;
+  const CURRENT_YEAR = new Date().getFullYear();
 
+  const monthToIndex = (ym) => {
+    const [y, m] = ym.split('-').map(Number);
+    return (y - BASE_YEAR) * 12 + (m - 1);
+  };
   const experiences = [
+    {
+      name: '백엔드 개발자로서 성장중',
+      type: '경력',
+      start: '2025-10',
+      end: '2026-01',
+      achievements: '실무와 프로젝트를 통해 백엔드 설계 역량을 지속적으로 확장 중',
+      period: '2025.10 ~ 현재',
+    },
     {
       name: '정보처리기사',
       type: '자격증',
       start: '2025-09',
       end: '2025-09',
-      achievements: '정보처리기사 자격증 취득',
+      achievements: '정보처리기사 취득',
       period: '2025.09 취득',
     },
     {
@@ -36,7 +51,7 @@ function About() {
       start: '2024-07',
       end: '2024-12',
       achievements:
-        'REST API 설계 및 구현, JWT 인증 처리, PostgreSQL DB 모델링, 기획팀/UX/UI팀/프론트엔드팀 협업으로 기능 완성',
+        '인증 흐름과 데이터 구조를 직접 설계하며 서비스 백엔드의 핵심 로직을 담당',
       period: '2024.07 ~ 2024.12 (6개월)',
     },
     {
@@ -48,22 +63,21 @@ function About() {
       period: '2024.05 취득',
     },
     {
+      name: 'K-디지털 트레이닝 해커톤',
+      type: '경력',
+      start: '2023-10',
+      end: '2023-11',
+      achievements: '서비스 구조 설계와 인증 시스템 구현을 맡아 MVP 완성에 기여',
+      period: '2023.09 ~ 2023.11 (2개월)',
+    },
+    {
       name: 'ESTsoft 백엔드 개발자 과정',
       type: '교육',
       start: '2023-06',
       end: '2023-11',
       achievements:
-        '사이드 프로젝트로 REST API 개발, Django 실무 프로젝트 완성, 팀 협업 경험',
+        '요구사항 분석부터 API 설계까지, 팀 프로젝트의 백엔드 전반을 경험',
       period: '2023.06 ~ 2023.11 (6개월)',
-    },
-    {
-      name: '동부엔지니어링 ERP/EP 기반 사무보조',
-      type: '경력',
-      start: '2022-05',
-      end: '2023-05',
-      achievements:
-        'ERP/EP, OA 시스템 운영 지원, 대규모 사무 데이터 관리 및 보고서 작성',
-      period: '2022.05 ~ 2023.05 (12개월)',
     },
     {
       name: '컴퓨터활용능력 1급',
@@ -76,8 +90,8 @@ function About() {
     {
       name: '네트워크관리사 2급',
       type: '자격증',
-      start: '2019-06',
-      end: '2019-06',
+      start: '2020-12',
+      end: '2020-12',
       achievements: '네트워크관리사 2급 취득',
       period: '2019.06 취득',
     },
@@ -94,13 +108,6 @@ function About() {
 
   const [hoveredExperience, setHoveredExperience] = useState(null);
 
-  const BASE_YEAR = 2019;
-  const CURRENT_YEAR = new Date().getFullYear();
-
-  const monthToIndex = (ym) => {
-    const [y, m] = ym.split('-').map(Number);
-    return (y - BASE_YEAR) * 12 + (m - 1);
-  };
 
   const timelineData = experiences.map((exp) => ({
     name: exp.name,
@@ -112,6 +119,7 @@ function About() {
   }));
 
   const MAX_MONTH_INDEX = (CURRENT_YEAR - BASE_YEAR + 1) * 12;
+  const TOTAL_MONTHS = MAX_MONTH_INDEX;
 
   const yearTicks = Array.from(
     { length: CURRENT_YEAR - BASE_YEAR + 1 },
@@ -121,16 +129,22 @@ function About() {
   const formatYearTick = (value) =>
     BASE_YEAR + Math.floor(value / 12);
 
-  const TimelineBar = ({ y, height, payload }) => {
+  const TimelineBar = ({ y, height, payload, width }) => {
     const isHovered = hoveredExperience?.name === payload.name;
 
-    const baseHeight = 20;
-    const hoverHeight = 35;
+    const baseHeight = 25;
+    const hoverHeight = 40;
     const barHeight = isHovered ? hoverHeight : baseHeight;
 
-    const unitWidth = 18;
-    const startX = payload.start * unitWidth;
-    const barWidth = Math.max((payload.end - payload.start + 1) * unitWidth, 8);
+    const startRatio = payload.start / TOTAL_MONTHS;
+    const endRatio = (payload.end + 5) / TOTAL_MONTHS;
+
+    const startX = (startRatio + 0.2) * width;
+    const isSinglePoint = payload.start === payload.end;
+
+    const barWidth = isSinglePoint
+      ? 24
+      : Math.max((endRatio - startRatio) * width, 8);
 
     return (
       <g
@@ -151,7 +165,7 @@ function About() {
           rx={8}
           fill="rgba(255, 255, 255, 0.1)"
           opacity={0.8}
-          style={{ transition: 'all 0.3s ease', }}
+          style={{ transition: 'all 0.3s ease' }}
           />
         )}
         
