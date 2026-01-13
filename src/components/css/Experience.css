@@ -1,0 +1,106 @@
+#experience {
+  padding: 6rem 2rem;
+  /* background-color: #f9faf8; */
+}
+
+#experience h3 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 4rem;
+  color: #2c4d3a;
+}
+
+.experience-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+.experience-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2.4rem 2.8rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.09);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.experience-header h4 {
+  font-size: 1.45rem;
+  color: #1f3d2b;
+}
+
+.organization {
+  display: block;
+  font-size: 0.95rem;
+  color: rgba(44, 77, 58, 0.6);
+  margin-top: 0.2rem;
+}
+
+.period {
+  font-size: 0.95rem;
+  color: rgba(44, 77, 58, 0.6);
+}
+
+.type {
+  display: inline-block;
+  margin: 0.8rem 0 1.4rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.type.internship {
+  background-color: rgba(59, 110, 220, 0.12);
+  color: #3b6edc;
+}
+
+.type.project {
+  background-color: rgba(18, 168, 58, 0.12);
+  color: #12a83a;
+}
+
+.type.work {
+  background-color: rgba(128, 223, 167, 0.25);
+  color: #2c4d3a;
+}
+
+.description {
+  padding-left: 1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.description li {
+  margin-bottom: 0.65rem;
+  line-height: 1.65;
+  color: #444;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tech {
+  background-color: rgba(44, 77, 58, 0.08);
+  color: #2c4d3a;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
