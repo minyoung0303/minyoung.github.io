@@ -43,7 +43,7 @@ function Projects() {
       role: [
         '팀 리더 · GitHub 버전관리 및 Hotfix 관리',
         '검색 기능 구현',
-        'PostgreSQL Full-Text Search 도입, 쿼리 분할 처리계',
+        'PostgreSQL Full-Text Search 도입, 쿼리 분할 처리',
       ],
       result: '검색 속도 2배 향상',
       tech: ['Python', 'Django', 'PostgreSQL', 'HTML5', 'CSS', 'javascript', 'Docker'],
