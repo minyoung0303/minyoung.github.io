@@ -5,9 +5,9 @@ function Contact() {
   const [activePreview, setActivePreview] = useState(null);
 
   const previews = {
-    blog: '/images/preview-blog.png',
-    github: '/images/preview-github.png',
-    linkedin: '/images/preview-linkedin.png',
+    blog: '/minyoung.portfolio/images/preview-blog.png',
+    github: '/minyoung.portfolio/images/preview-github.png',
+    linkedin: '/minyoung.portfolio/images/preview-linkedin.png',
   }
 
   return (

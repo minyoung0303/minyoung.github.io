@@ -1,6 +1,5 @@
 #experience {
-  padding: 6rem 2rem;
-  /* background-color: #f9faf8; */
+  padding: 3.5rem 2rem;
 }
 
 #experience h3 {
@@ -77,6 +76,11 @@
 .type.work {
   background-color: rgba(128, 223, 167, 0.25);
   color: #2c4d3a;
+}
+
+.type.education {
+  background-color: rgba(255, 183, 0, 0.12);
+  color: #ffb700;
 }
 
 .description {

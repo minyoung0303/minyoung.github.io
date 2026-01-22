@@ -1,13 +1,4 @@
-// Projects: 3-4개 주요 프로젝트(라이브 데모, GitHub 링크, 기술 설명, 성능 최적화 사례 강조)
-// Grid (2~3열)
-// ┌──────────┐
-// │ 카드     │  ← hover 시
-// │ 썸네일   │     - Stack
-// │ 제목     │     - 역할
-// │ 한줄설명 │     - 링크
-// └──────────┘
-
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import './css/Projects.css';
 
 function Projects() {
@@ -27,12 +18,30 @@ function Projects() {
         'JWT 기반 인증/인가 구조 설계',
         'PostgreSQL 인덱싱 적용으로 조회 성능 최적화',
       ],
-      result: '페이지 로딩 속도 약 30% 개선',
-      tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'HTML5', 'CSS', 'Docker', 'AWS(IAM, S3, EC2)'],
+      result: '데이터베이스 정규화 및 페이지 로딩 속도 약 30% 개선',
+      tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'HTML5', 'CSS', 'Docker', 'AWS'],
       links: {
               github: 'https://github.com/minyoung0303/KDT_Hackathon',
               demo: null,
             },
+    },
+    {
+      title: 'Chatbot 상담 중고 거래 플랫폼',
+      subtitle: '팀 프로젝트 · ESTsoft 백엔드개발 교육캠프',
+      period: '2023.07 - 2023.08',
+      type: 'Team',
+      summary: 'AI 챗봇이 상담하는 중고 거래 서비스',
+      role: [
+        '팀 리더 · GitHub 버전 관리',
+        '실시간 채팅 및 거래 API 안정화',
+        'WebSocket 통합, 캐싱 레이어 도입으로 응답 최적화',
+        'PostgreSQL 인덱싱 적용으로 조회 성능 최적화',
+      ],
+      result: '실시간 서비스에서 WebSocket과 캐싱·인덱싱 조합이 성능에 미치는 영향을 직접 경험',
+      tech: ['Django', 'PostgreSQL', 'HTML5', 'CSS3', 'Python', 'openAI API', 'Docker', 'AWS'],
+      links: { github:'https://github.com/minyoung0303/JHC',
+               demo: null,
+              },
     },
     {
       title: 'MYLOG',
@@ -51,24 +60,6 @@ function Projects() {
                demo: null,
               }
     },
-    {
-      title: 'Chatbot 상담 중고 거래 플랫폼',
-      subtitle: '팀 프로젝트 · ESTsoft 백엔드개발 교육캠프',
-      period: '2023.07 - 2023.08',
-      type: 'Team',
-      summary: 'AI 챗봇이 상담하는 React+Django 중고 거래 서비스',
-      role: [
-        '팀 리더 · GitHub 버전 관리',
-        '실시간 채팅 및 거래 API 안정화',
-        'WebSocket 통합, 캐싱 레이어 도입으로 응답 최적화',
-        'PostgreSQL 인덱싱 적용으로 조회 성능 최적화',
-      ],
-      result: '실시간 서비스에서 WebSocket과 캐싱·인덱싱 조합이 성능에 미치는 영향을 직접 경험',
-      tech: ['Django', 'DRF', 'PostgreSQL', 'HTML5', 'CSS3', 'Python', 'openAI API', 'Docker', 'AWS(IAM, S3, EC2)'],
-      links: { github:'https://github.com/minyoung0303/JHC',
-               demo: null,
-              },
-    }
   ];
 
   return (

@@ -1,6 +1,3 @@
-// Home.jsx 파일에는 자기소개, 한줄 요약
-// (예: "Python/Django 백엔드 전문 개발자"), 프로필 사진 또는 애니메이션 배경 넣기
-
 import './css/Home.css';
 
 function Home() {

@@ -1,7 +1,3 @@
-// About: 경력, 기술 스택(Backend: Django/PostgreSQL, Frontend: React), 교육 배경 등
-// - 3~4줄 요약 소개
-// - Backend / Frontend / Infra 스택 분리
-// - 교육 or 성장 경로 (SSAFY 등)
 import './css/About.css';
 import { useState } from 'react';
 import {
@@ -51,7 +47,7 @@ function About() {
       start: '2024-07',
       end: '2024-12',
       achievements:
-        '인증 흐름과 데이터 구조를 직접 설계하며 서비스 백엔드의 핵심 로직을 담당',
+        '실제 운영 조직의 업무 흐름을 분석해 Django Admin 기반 백오피스 시스템을 개선',
       period: '2024.07 ~ 2024.12 (6개월)',
     },
     {
@@ -231,7 +227,9 @@ function About() {
       </ResponsiveContainer>
 
       <p className="chart-note">
-        * 2019 ~ 2025 타임라인 | 이력 하나당 하나의 연속 막대
+        * 2019 ~ 현재 | 이력 하나당 하나의 연속 막대
+        <br />
+        그래프에 마우스를 올리시면 해당 이력 요약이 보여집니다.
       </p>
     </section>
   );

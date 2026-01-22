@@ -1,5 +1,3 @@
-// 다크/라이트 모드 토글 추가 고려
-import React from 'react';
 import './css/Menu.css';
 
 const Menu = ({ selectedPage, onSelectPage }) => {
@@ -16,7 +14,7 @@ const Menu = ({ selectedPage, onSelectPage }) => {
     return (
         <nav className="menu">
             <div className="menu-logo">
-                <span className="menu-logo-text">Portfolio</span>
+                <span className="menu-logo-text">MinYoung Lee</span>
             </div>
             <ul className="menu-list">
                 {menuItems.map((item) => (
