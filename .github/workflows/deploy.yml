@@ -3,6 +3,7 @@ name: Deploy Vite App to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -18,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
       - run: npm install
       - run: npm run build
