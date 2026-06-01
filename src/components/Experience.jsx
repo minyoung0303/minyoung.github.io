@@ -16,13 +16,15 @@ const experiences = [
         '   - 데이터 공유 속도 10초 → 2초 단축, 업무 효율 및 시스템 활용도 향상',  
       '협업 및 운영 환경 경험',
         '   - 주간 스탠드업 회의 및 이슈 트래킹 도구(Notion 등)을 활용한 태스크 관리 경험',
-        '   - Git 활용 및 PR 리뷰 기반 개발 프로세스 경험'
+        '   - Git 활용 및 PR 리뷰 기반 개발 프로세스 경험',
     ],
     tech: [
       'Python',
       'Django',
       'Django Admin',
-      'MariaDB (RDS)',
+      'React',
+      'JQuery',
+      'MariaDB',
       'AWS ECS',
       'Docker',
       'Slack Webhook',

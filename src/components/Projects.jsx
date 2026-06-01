@@ -7,6 +7,28 @@ function Projects() {
   const modalRef = useRef(null);
 
   const projects = [
+        {
+      title: '대동맛지도',
+      subtitle: '개인 프로젝트',
+      period: '2026.05 - 2026.06',
+      type: 'Solo',
+      summary: 'React, Django, Kakao Map API를 기반으로 사용자 위치 주변의 맛집과 카페를 탐색할 수 있는 위치 기반 웹 서비스',
+      role: [
+        'React 기반 프론트엔드 구조 설계 및 카카오맵 SDK 연동',
+        'Django·DRF 기반 장소 데이터 처리 및 API 연동 구조 설계',
+        '사용자 위치 기준 주변 맛집·카페 탐색 기능 구현 및 검색 로직 개선 진행',
+      ],
+      result: ['React 기반 지도·리스트 연동 UI 구현 진행중',
+              'Django·DRF 기반 장소 검색 API 설계 및 연동',
+              '장소 리스트와 지도 연동 UI 설계 및 기본 검색 로직 구현',
+              '검색 조건에 따른 주변 자소 필터링 로직 구현 진행중'
+            ],
+      tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'React', 'Docker', 'AWS'],
+      links: {
+              github: 'https://github.com/minyoung0303/daedong-matmap',
+              demo: null,
+            },
+    },
     {
       title: '냉장고 해방일지',
       subtitle: '팀 프로젝트 · 2023년 제 5회 K-Digital Hackathon',
