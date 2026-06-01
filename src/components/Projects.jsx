@@ -16,12 +16,9 @@ function Projects() {
       role: [
         'React 기반 프론트엔드 구조 설계 및 카카오맵 SDK 연동',
         'Django·DRF 기반 장소 데이터 처리 및 API 연동 구조 설계',
-        '사용자 위치 기준 주변 맛집·카페 탐색 기능 구현 및 검색 로직 개선 진행',
+        'KakaoMap API 기반 사용자 위치 기준 주변 맛집·카페 탐색 기능 구현 및 검색 로직 개선 진행',
       ],
-      result: ['React 기반 지도·리스트 연동 UI 구현 진행중',
-              'Django·DRF 기반 장소 검색 API 설계 및 연동',
-              '장소 리스트와 지도 연동 UI 설계 및 기본 검색 로직 구현',
-              '검색 조건에 따른 주변 자소 필터링 로직 구현 진행중'
+      result: ['React 기반 지도·리스트 연동 UI 구현 진행중이며, Django·DRF 기반 장소 검색 API 설계 및 연동',
             ],
       tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'React', 'Docker', 'AWS'],
       links: {
