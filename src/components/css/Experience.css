@@ -91,7 +91,7 @@
 .description li {
   margin-bottom: 0.65rem;
   line-height: 1.65;
-  color: #4a903a;
+  color: rgba(18, 168, 58, 0.12);
 }
 
 .tech-stack {
