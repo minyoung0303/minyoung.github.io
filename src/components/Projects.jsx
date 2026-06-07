@@ -1,4 +1,13 @@
 import { useState, useRef } from 'react';
+import daedong_workflow from '/minyoung.portfolio/images/daedong-matmap-workflow.png';
+import daedong_gantchart from '/minyoung.portfolio/images/daedong-matmap-gantchart.png';
+import daedong_kakaomap from '/minyoung.portfolio/images/kakaomap.png';
+import ndjango_firsterd from '/minyoung.portfolio/images/ndjango-erd1.png';
+import ndjango_erdfinal from '/minyoung.portfolio/images/ndjango-erd-final.png';
+import ndjango_architecture from '/minyoung.portfolio/images/ndjango-architecture.png';
+import preview_jhc1 from '/minyoung.portfolio/images/preview-jhc1.png';
+import preview_jhc2 from '/minyoung.portfolio/images/preview-jhc2.png';
+import wish_logo from '/minyoung.portfolio/images/wishket-logo.png';
 import './css/Projects.css';
 
 function Projects() {
@@ -21,6 +30,7 @@ function Projects() {
       result: ['React 기반 지도·리스트 연동 UI 구현 및 Django·DRF 기반 장소 검색 API 설계 및 연동 진행중',
             ],
       tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'React', 'Docker', 'AWS'],
+      images: [daedong_workflow, daedong_gantchart, daedong_kakaomap],
       links: {
               github: 'https://github.com/minyoung0303/daedong-matmap',
               demo: null,
@@ -39,6 +49,7 @@ function Projects() {
       ],
       result: '데이터베이스 정규화 및 페이지 로딩 속도 약 30% 개선',
       tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'HTML5', 'CSS', 'Docker', 'AWS'],
+      images: [ndjango_firsterd, ndjango_architecture, ndjango_erdfinal],
       links: {
               github: 'https://github.com/minyoung0303/KDT_Hackathon',
               demo: null,
@@ -58,6 +69,7 @@ function Projects() {
       ],
       result: '실시간 서비스에서 WebSocket과 캐싱·인덱싱 조합이 성능에 미치는 영향을 직접 경험',
       tech: ['Django', 'PostgreSQL', 'HTML5', 'CSS3', 'Python', 'openAI API', 'Docker', 'AWS'],
+      images: [preview_jhc1, preview_jhc2],
       links: { github:'https://github.com/minyoung0303/JHC',
                demo: null,
               },
