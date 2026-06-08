@@ -1,40 +1,54 @@
-import { useState, useRef } from 'react';
-import daedong_workflow from '/minyoung.portfolio/images/daedong-matmap-workflow.png';
-import daedong_gantchart from '/minyoung.portfolio/images/daedong-matmap-gantchart.png';
-import daedong_kakaomap from '/minyoung.portfolio/images/kakaomap.png';
-import ndjango_firsterd from '/minyoung.portfolio/images/ndjango-erd1.png';
-import ndjango_erdfinal from '/minyoung.portfolio/images/ndjango-erd-final.png';
-import ndjango_architecture from '/minyoung.portfolio/images/ndjango-architecture.png';
-import preview_jhc1 from '/minyoung.portfolio/images/preview-jhc1.png';
-import preview_jhc2 from '/minyoung.portfolio/images/preview-jhc2.png';
-import wish_logo from '/minyoung.portfolio/images/wishket-logo.png';
+import { useState } from 'react';
 import './css/Projects.css';
 
 function Projects() {
+  const [preview, setPreview] = useState({
+    image: null,
+    projectIndex: null,
+  });
 
-  const [selectedProject, setSelectedProject] = useState(null);
-  const modalRef = useRef(null);
+  const base = import.meta.env.BASE_URL;
+
+  const openImageModal = (img, idx) => {
+    setPreview({
+      image: img,
+      projectIndex: idx,
+    });
+  };
+
+  const closeImageModal = () => {
+    setPreview({
+      image: null,
+      projectIndex: null,
+    });
+  };
 
   const projects = [
-        {
+    {
       title: '대동맛지도',
       subtitle: '개인 프로젝트',
       period: '2026.05 - 2026.06',
       type: 'Solo',
-      summary: 'React, Django, Kakao Map API를 기반으로 사용자 위치 주변의 맛집과 카페를 탐색할 수 있는 위치 기반 웹 서비스',
+      summary:
+        'React, Django, Kakao Map API를 기반으로 사용자 위치 주변의 맛집과 카페를 탐색할 수 있는 위치 기반 웹 서비스',
       role: [
         'React 기반 프론트엔드 구조 설계 및 카카오맵 SDK 연동',
         'Django·DRF 기반 장소 데이터 처리 및 API 연동 구조 설계',
         'KakaoMap API 기반 사용자 위치 기준 주변 맛집·카페 탐색 기능 구현 및 검색 로직 개선 진행',
       ],
-      result: ['React 기반 지도·리스트 연동 UI 구현 및 Django·DRF 기반 장소 검색 API 설계 및 연동 진행중',
-            ],
+      result: [
+        'React 기반 지도·리스트 연동 UI 구현 및 Django·DRF 기반 장소 검색 API 설계 및 연동 진행중',
+      ],
       tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'React', 'Docker', 'AWS'],
-      images: [daedong_workflow, daedong_gantchart, daedong_kakaomap],
+      images: [
+        `${base}images/daedong-matmap-gantchart.png`,
+        `${base}images/daedong-matmap-workflow.png`,
+        `${base}images/kakaomap.png`,
+      ],
       links: {
-              github: 'https://github.com/minyoung0303/daedong-matmap',
-              demo: null,
-            },
+        github: 'https://github.com/minyoung0303/daedong-matmap',
+        demo: null,
+      },
     },
     {
       title: '냉장고 해방일지',
@@ -49,11 +63,15 @@ function Projects() {
       ],
       result: '데이터베이스 정규화 및 페이지 로딩 속도 약 30% 개선',
       tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'HTML5', 'CSS', 'Docker', 'AWS'],
-      images: [ndjango_firsterd, ndjango_architecture, ndjango_erdfinal],
+      images: [
+        `${base}images/ndjango-erd1.png`,
+        `${base}images/ndjango-architecture.png`,
+        `${base}images/ndjango-erd-final.png`,
+      ],
       links: {
-              github: 'https://github.com/minyoung0303/KDT_Hackathon',
-              demo: null,
-            },
+        github: 'https://github.com/minyoung0303/KDT_Hackathon',
+        demo: null,
+      },
     },
     {
       title: 'Chatbot 상담 중고 거래 플랫폼',
@@ -69,10 +87,14 @@ function Projects() {
       ],
       result: '실시간 서비스에서 WebSocket과 캐싱·인덱싱 조합이 성능에 미치는 영향을 직접 경험',
       tech: ['Django', 'PostgreSQL', 'HTML5', 'CSS3', 'Python', 'openAI API', 'Docker', 'AWS'],
-      images: [preview_jhc1, preview_jhc2],
-      links: { github:'https://github.com/minyoung0303/JHC',
-               demo: null,
-              },
+      images: [
+        `${base}images/preview-jhc1.png`,
+        `${base}images/preview-jhc2.png`,
+      ],
+      links: {
+        github: 'https://github.com/minyoung0303/JHC',
+        demo: null,
+      },
     },
     {
       title: 'MYLOG',
@@ -87,9 +109,11 @@ function Projects() {
       ],
       result: '검색 속도 2배 향상',
       tech: ['Python', 'Django', 'PostgreSQL', 'HTML5', 'CSS', 'javascript', 'Docker'],
-      links: { github:'https://github.com/minyoung0303/MYLOG',
-               demo: null,
-              }
+      images: [],
+      links: {
+        github: 'https://github.com/minyoung0303/MYLOG',
+        demo: null,
+      },
     },
   ];
 
@@ -121,14 +145,20 @@ function Projects() {
             </ul>
 
             <p className="result">
-              <strong>성과:</strong> {project.result}
+              <strong>성과:</strong>{' '}
+              {Array.isArray(project.result)
+                ? project.result.join(', ')
+                : project.result}
             </p>
 
             <div className="tech-stack">
               {project.tech.map((tech, i) => (
-                <span key={i} className="tech">{tech}</span>
+                <span key={i} className="tech">
+                  {tech}
+                </span>
               ))}
             </div>
+
             <div className="project-links">
               <a
                 href={project.links.github}
@@ -140,6 +170,48 @@ function Projects() {
                 <i className="fa-brands fa-github"></i>
               </a>
             </div>
+
+            {project.images.length > 0 && (
+              <div className="project-images">
+                {project.images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt={`${project.title} screenshot ${i + 1}`}
+                    className="project-image"
+                    loading="lazy"
+                    onClick={() => openImageModal(img, idx)}
+                  />
+                ))}
+              </div>
+            )}
+
+            {preview.image && preview.projectIndex === idx && (
+              <div className="image-preview-overlay" onClick={closeImageModal}>
+                <div
+                  className="image-preview-box"
+                  onClick={(e) => e.stopPropagation()}
+                  role="dialog"
+                  aria-modal="false"
+                  aria-label="Project Image Preview"
+                >
+                  <button
+                    type="button"
+                    className="image-preview-close"
+                    onClick={closeImageModal}
+                    aria-label="Close Image Preview"
+                  >
+                    ×
+                  </button>
+
+                  <img
+                    src={preview.image}
+                    alt={`${project.title} preview`}
+                    className="image-preview-img"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
