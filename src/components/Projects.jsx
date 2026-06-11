@@ -30,7 +30,7 @@ function Projects() {
       period: '2026.05 - 2026.06',
       type: 'Solo',
       summary:
-        'React, Django, Kakao Map API를 기반으로 사용자 위치 주변의 맛집과 카페를 탐색할 수 있는 위치 기반 웹 서비스',
+        'React, Spring, Kakao Map API를 기반으로 사용자 위치 주변의 맛집과 카페를 탐색할 수 있는 위치 기반 웹 서비스',
       role: [
         'React 기반 프론트엔드 구조 설계 및 카카오맵 SDK 연동',
         'Django·DRF 기반 장소 데이터 처리 및 API 연동 구조 설계',
@@ -41,8 +41,8 @@ function Projects() {
       ],
       tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'React', 'Docker', 'AWS'],
       images: [
-        `${base}images/daedong-matmap-gantchart.png`,
-        `${base}images/daedong-matmap-workflow.png`,
+        `${base}images/daedong-matmap-gantt.png`,
+        `${base}images/daedong-matmap-system.png`,
         `${base}images/kakaomap.png`,
       ],
       links: {
