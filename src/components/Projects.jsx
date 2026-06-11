@@ -90,7 +90,7 @@ function Projects() {
       images: [
         `${base}images/preview-jhc1.png`,
         `${base}images/preview-jhc2.png`,
-      ],
+      ], 
       links: {
         github: 'https://github.com/minyoung0303/JHC',
         demo: null,
