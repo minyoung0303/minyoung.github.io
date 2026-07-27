@@ -1,24 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-* {
-  font-family: 'Noto Sans KR', 'Inter', sans-serif;
-}
-
-html,
-body {
-  width: 100%;
-  min-height: 100%;
-  background-color: #fffde7;
-}
-
+/* ============================================================
+   Design tokens
+   Premium, business-grade portfolio. Green accent, high legibility.
+   ============================================================ */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* surfaces */
+  --bg: #f6f8f7;
+  --surface: #ffffff;
+  --surface-2: #eef3f0;
 
-  color-scheme: light dark;
-  color: #2c4d3a;
-  background-color: #fffde7;
+  /* ink / text */
+  --ink: #13201b;
+  --ink-2: #3a4842;
+  --muted: #6b7a72;
+
+  /* lines */
+  --line: #e3ebe6;
+  --line-strong: #d3ddd7;
+
+  /* green accent scale */
+  --accent: #12875a;
+  --accent-strong: #0b6a46;
+  --accent-bright: #17a06b;
+  --accent-soft: #e7f4ee;
+
+  /* dark (hero / footer) */
+  --dark: #0d1815;
+  --dark-2: #12211b;
+  --dark-line: rgba(255, 255, 255, 0.1);
+  --on-dark: #eef4f0;
+  --on-dark-muted: #9db3a8;
+
+  /* shape */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 22px;
+
+  /* elevation */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 20, 0.04), 0 2px 6px rgba(16, 24, 20, 0.05);
+  --shadow-md: 0 8px 30px rgba(16, 24, 20, 0.08);
+  --shadow-lg: 0 20px 50px rgba(16, 24, 20, 0.12);
+
+  /* layout */
+  --maxw: 1120px;
+  --nav-h: 72px;
+
+  /* type */
+  --font-sans: 'Inter', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+
+  color-scheme: light;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,54 +62,100 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #10a85f;
+/* ============================================================
+   Reset
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-a:hover {
-  color: #0d6831;
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
-  margin: 0;
   min-width: 320px;
-  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+p {
+  color: var(--ink-2);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-strong);
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border: none;
+  background: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #3F4F46;
-    background-color: #fffde7;
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* accessible focus */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }

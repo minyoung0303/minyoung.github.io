@@ -1,0 +1,30 @@
+/* Hide native cursor only when the custom leaf cursor is active
+   (fine-pointer devices). Touch devices keep the default behaviour. */
+body.has-custom-cursor,
+body.has-custom-cursor * {
+  cursor: none !important;
+}
+
+/* leaf cursor — tip tracks the exact pointer position, no motion effects */
+.cursor-leaf {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  filter: drop-shadow(0 2px 5px rgba(11, 106, 70, 0.4));
+}
+
+.cursor-leaf.is-visible {
+  opacity: 1;
+}
+
+.cursor-leaf svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
