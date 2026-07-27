@@ -2,9 +2,25 @@ import './css/Experience.css';
 
 const experiences = [
   {
+    title: 'AI 서비스 개발 인턴 (Backend)',
+    organization: '서울경제신문 미래전략부',
+    period: '2026.07 — 현재',
+    type: 'Internship',
+    highlights: [
+      'AI 글쓰기 플랫폼 AI NOVA(B2C 유료 서비스)의 사용자 데이터 지표를 관리하는 백오피스 대시보드 운영·개발',
+      'Next.js · Node.js 기반 백오피스에서 NOVA 엔진별 토큰 사용량·결제 금액·AWS 서버 비용 지표 관리',
+      '엔진 토글 16종 LLM API 호출 원가를 실측·확정하고, 프롬프트 경량화로 품질 무손상 원가 절감 여지 도출',
+      '결제·크레딧 운영 기능 개발, 크레딧 반영 지연(최대 180초 → 즉시) 해결 및 손익 데이터 신뢰도 개선',
+      '실시간 채팅·다중 이메일 전송 기능을 API 설계부터 운영 배포까지 end-to-end 수행',
+      'AWS Lambda·S3 기반 서버리스 처리와 IAM·MFA·WAF 콘솔 권한 관리로 운영 보안 강화',
+      'AI 서비스 QA 및 개선안 보고, 브랜치 전략·코드 리뷰 기반 수익형 서비스 개발 프로세스 경험',
+    ],
+    tech: ['Node.js', 'Next.js', 'TypeScript', 'Python', 'AWS Lambda', 'S3', 'IAM', 'WAF'],
+  },
+  {
     title: 'Backend / Frontend Internship',
     organization: '위시켓',
-    period: '2024.07 — 2025.01',
+    period: '2024.07 — 2024.12',
     type: 'Internship',
     highlights: [
       '사내 백오피스(약 50명 사용) 프론트엔드·백엔드 개발 및 운영',

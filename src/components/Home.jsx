@@ -4,7 +4,7 @@ const stats = [
   { value: '2+', label: '년 개발 경험' },
   { value: '8+', label: '완료 프로젝트' },
   { value: '4', label: '기술 자격증' },
-  { value: '2.5x', label: '서비스 사용량 증가' },
+  { value: '3x', label: '서비스 사용량 증가' },
 ];
 
 function Home({ onNavigate }) {
@@ -34,7 +34,7 @@ function Home({ onNavigate }) {
         <p className="home-desc">
           안정적인 서버 설계와 데이터 중심의 문제 해결에 집중합니다.
           한 번이 부족하면 100번, 1000번 시도하는 끈질긴 개발자로서
-          <span className="home-highlight">실 사용량 2.5배 성장</span>이라는 정량적 성과를 만들어 왔습니다.
+          <span className="home-highlight">실 사용량 3배 성장</span>이라는 정량적 성과를 만들어 왔습니다.
         </p>
 
         <div className="home-actions">

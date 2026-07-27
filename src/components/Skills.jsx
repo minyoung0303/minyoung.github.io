@@ -6,7 +6,7 @@ const skillGroups = [
     title: 'Languages',
     items: [
       { name: 'Python', desc: '백엔드 개발, API 로직 구현' },
-      { name: 'JavaScript', desc: 'React 상태 관리, 비동기 처리' },
+      { name: 'JavaScript / TypeScript', desc: '타입 안정성 기반 프론트·백엔드 개발' },
       { name: 'SQL', desc: '쿼리 최적화 및 데이터 모델링' },
       { name: 'HTML5 / CSS3', desc: '반응형 웹 구조 및 스타일링' },
     ],
@@ -15,10 +15,10 @@ const skillGroups = [
     icon: '</>',
     title: 'Frameworks',
     items: [
-      { name: 'Django', desc: '웹 애플리케이션 개발 및 보안 처리' },
-      { name: 'Django REST (DRF)', desc: 'RESTful API 설계와 직렬화' },
+      { name: 'Django / DRF', desc: '웹 애플리케이션 개발과 RESTful API 설계' },
+      { name: 'Node.js', desc: '백오피스 백엔드 API 및 서버 로직 구현' },
+      { name: 'Next.js', desc: 'SSR 기반 대시보드 UI 개발' },
       { name: 'React', desc: '컴포넌트 기반 UI와 상태 관리' },
-      { name: 'jQuery', desc: 'DOM 조작과 AJAX 비동기 요청' },
     ],
   },
   {
@@ -28,7 +28,7 @@ const skillGroups = [
       { name: 'PostgreSQL', desc: '관계형 모델링, 트랜잭션, 인덱싱' },
       { name: 'MariaDB / SQLite', desc: '운영·개발 환경 DB 관리' },
       { name: 'Docker', desc: '컨테이너화와 배포 환경 일관성' },
-      { name: 'AWS', desc: 'EC2 · ECS · RDS · S3 운영 경험' },
+      { name: 'AWS', desc: 'Lambda · S3 · IAM · WAF · EC2 운영 경험' },
     ],
   },
   {

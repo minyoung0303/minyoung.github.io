@@ -9,10 +9,10 @@ const TYPE_META = {
 
 const timeline = [
   {
-    year: '2025 — 현재',
-    name: '백엔드 개발자로 성장 중',
+    year: '2026.07 — 현재',
+    name: '서울경제신문 미래전략부 인턴',
     type: '경력',
-    desc: '교육과 개인 프로젝트를 통해 백엔드 설계 역량을 지속적으로 확장하고 있습니다.',
+    desc: 'AI 글쓰기 플랫폼 AI NOVA의 사용자 지표·결제·비용을 관리하는 백오피스 대시보드를 Next.js·Node.js·AWS 기반으로 개발·운영하고 있습니다.',
   },
   {
     year: '2025.09',
@@ -27,7 +27,7 @@ const timeline = [
     desc: '실제 운영 조직의 업무 흐름을 분석해 Django Admin 기반 백오피스 시스템을 개선했습니다.',
   },
   {
-    year: '2024.05',
+    year: '2024.04',
     name: 'SQLD 취득',
     type: '자격증',
     desc: '데이터베이스 설계와 SQL 활용 역량을 검증받았습니다.',
