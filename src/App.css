@@ -3,94 +3,218 @@
   min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #0dff05be);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #07ce00be);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ============================================================
+   Scroll progress bar (top)
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 200;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.1s linear;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* ============================================================
+   Shared section scaffolding
+   Every section component reuses these primitives for consistency.
+   ============================================================ */
+.section {
+  position: relative;
+  padding: clamp(72px, 11vh, 130px) 24px;
+  scroll-margin-top: var(--nav-h);
 }
 
-.card {
-  padding: 2em;
+.section--alt {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.read-the-docs {
-  color: #888;
+.section-inner {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
 }
 
-.nav-arrow {
+.section-head {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  max-width: 720px;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.section-kicker::before {
+  content: '';
+  width: 26px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4.2vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.section-lead {
+  margin-top: 1.1rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ============================================================
+   Right-side section dots
+   ============================================================ */
+.section-dots {
   position: fixed;
   top: 50%;
+  right: 26px;
   transform: translateY(-50%);
-  background: rgba(44, 77, 58, 0.8);
-  color: #fffde7;
-  border: none;
-  width: 50px;
-  height: 50px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.section-dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  width: 12px;
+  height: 12px;
+}
+
+.section-dot::after {
+  content: '';
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 50;
-  transition: all 0.3s ease;
+  background: var(--line-strong);
+  transition: all 0.25s ease;
+}
+
+.section-dot:hover::after {
+  background: var(--accent-bright);
+  transform: scale(1.2);
+}
+
+.section-dot.active::after {
+  background: var(--accent);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.section-dot-label {
+  position: absolute;
+  right: 20px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.section-dot:hover .section-dot-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================================
+   Back to top
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 90;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
   pointer-events: auto;
-  outline: none;
 }
 
-.nav-arrow:hover {
-  background: #2c4d3a;
-  transform: translateY(-50%) scale(1.1);
+.back-to-top:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
 }
 
-.nav-arrow.left {
-  left: 20px;
+/* ============================================================
+   Reusable chips / tags (tech stacks etc.)
+   ============================================================ */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border: 1px solid rgba(18, 135, 90, 0.16);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
-.nav-arrow.right {
-  right: 20px;
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .section-dots {
+    display: none;
+  }
 }
 
-.nav-arrow:hover {
-  background: rgba(44, 77, 58, 0.9);
-  transform: translateY(-50%) scale(1.05);
+@media (max-width: 640px) {
+  .section {
+    padding: 68px 20px;
+  }
+  .back-to-top {
+    bottom: 18px;
+    right: 16px;
+  }
 }
-
-.nav-arrow:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.nav-arrow:active {
-  outline: none;
-}
-
-.content {
-  min-height: 80vh;
-  position: relative;
-  overflow: hidden;
-}
-
