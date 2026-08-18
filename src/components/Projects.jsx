@@ -14,18 +14,20 @@ function Projects() {
   const projects = [
     {
       title: '대동맛지도',
-      subtitle: '개인 프로젝트',
-      period: '2026.05 — 2026.06',
+      subtitle: '개인 프로젝트 · Apps in Toss 출시 예정',
+      period: '2026.05 — 현재',
       type: 'Solo',
       summary:
-        'React, Spring, Kakao Map API를 기반으로 사용자 위치 주변의 맛집과 카페를 탐색할 수 있는 위치 기반 웹 서비스',
+        'React(Vite) 프론트엔드와 Java · Spring Boot 백엔드, Kakao Maps API로 사용자 위치 주변의 맛집·카페를 탐색하는 위치 기반 서비스. Apps in Toss 미니앱 출시를 준비 중입니다.',
       role: [
-        'React 프론트엔드 구조 설계 및 카카오맵 SDK 연동',
-        'Django · DRF 기반 장소 데이터 처리 및 API 설계',
-        '사용자 위치 기준 주변 탐색 기능 구현 및 검색 로직 개선',
+        'React(Vite) 프론트엔드 설계 및 Kakao Maps SDK 클라이언트 직접 연동',
+        'Java · Spring Boot(Spring Data JPA · Flyway) 기반 장소 · 리뷰 REST API 설계',
+        '카테고리 필터 · 리뷰 기능 개발 및 검색 로직 개선',
+        '주변 탐색 반경을 1km에서 2km로 확대',
       ],
-      result: 'React 지도·리스트 연동 UI와 장소 검색 API를 설계·연동 (진행 중)',
-      tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'React', 'Docker', 'AWS'],
+      result:
+        'Apps in Toss 미니앱 출시를 준비하며 필터 · 리뷰 · 검색 개선과 탐색 반경 확대(1km → 2km)를 적용 (진행 중)',
+      tech: ['React', 'Vite', 'Java 21', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'Flyway', 'Kakao Maps', 'Apps in Toss'],
       images: [
         `${base}images/daedong-matmap-gantt.png`,
         `${base}images/daedong-matmap-system.png`,
