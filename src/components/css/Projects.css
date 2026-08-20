@@ -133,6 +133,22 @@
   padding: 0.7rem 0.9rem;
 }
 
+/* 문제 해결 경험 섹션으로 연결하는 상호 참조 링크 */
+.project-solving-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+}
+
+.project-solving-link:hover {
+  color: var(--accent-strong);
+  border-bottom-color: currentColor;
+}
+
 .project-tech {
   display: flex;
   flex-wrap: wrap;

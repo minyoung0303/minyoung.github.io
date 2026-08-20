@@ -48,7 +48,15 @@
 
   /* type */
   --font-sans: 'Inter', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+  /*
+    mono 스택에 'Noto Sans KR' 을 넣어 둔다.
+    JetBrains Mono 계열에는 한글 글리프가 없어서, 한글이 섞이면 브라우저의
+    마지막 대체 폰트로 떨어지며 자형과 baseline 이 어긋난다.
+    (예: chip 의 '정규화' '트랜잭션', 기간의 '현재')
+    글자 단위 폴백이라 라틴 문자는 그대로 JetBrains Mono 로 렌더된다.
+  */
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, 'Noto Sans KR',
+    monospace;
 
   color-scheme: light;
   font-family: var(--font-sans);

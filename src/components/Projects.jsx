@@ -18,16 +18,17 @@ function Projects() {
       period: '2026.05 — 현재',
       type: 'Solo',
       summary:
-        'React(Vite) 프론트엔드와 Java · Spring Boot 백엔드, Kakao Maps API로 사용자 위치 주변의 맛집·카페를 탐색하는 위치 기반 서비스. Apps in Toss 미니앱 출시를 준비 중입니다.',
+        '사용자 위치 주변의 맛집·카페를 탐색하는 위치 기반 서비스입니다. Python만 쓰던 상태에서 Java · Spring Boot를 새로 익혀 백엔드를 처음부터 직접 설계했고, DB 스키마 버전 관리까지 포함해 혼자 운영 가능한 구조로 만들었습니다.',
       role: [
-        'React(Vite) 프론트엔드 설계 및 Kakao Maps SDK 클라이언트 직접 연동',
-        'Java · Spring Boot(Spring Data JPA · Flyway) 기반 장소 · 리뷰 REST API 설계',
+        'Java 21 · Spring Boot 기반 장소 · 리뷰 REST API 설계 및 구현',
+        'Spring Data JPA로 도메인 매핑, Flyway로 DB 스키마 마이그레이션 이력 관리',
         '카테고리 필터 · 리뷰 기능 개발 및 검색 로직 개선',
-        '주변 탐색 반경을 1km에서 2km로 확대',
+        '탐색 반경을 1km → 2km로 확대하며 늘어난 조회 범위에 맞춰 응답 구조 조정',
+        'React(Vite) 프론트엔드와 Kakao Maps SDK 연동까지 단독 처리',
       ],
       result:
-        'Apps in Toss 미니앱 출시를 준비하며 필터 · 리뷰 · 검색 개선과 탐색 반경 확대(1km → 2km)를 적용 (진행 중)',
-      tech: ['React', 'Vite', 'Java 21', 'Spring Boot', 'Spring Data JPA', 'PostgreSQL', 'Flyway', 'Kakao Maps', 'Apps in Toss'],
+        '백엔드 · 프론트 · 배포를 혼자 담당해 Apps in Toss 미니앱 출시 준비 단계까지 진행. 새로운 언어와 프레임워크를 실제 서비스에 적용할 수 있음을 확인한 프로젝트입니다. (진행 중)',
+      tech: ['Java 21', 'Spring Boot', 'Spring Data JPA', 'Flyway', 'PostgreSQL', 'React', 'Vite', 'Kakao Maps', 'Apps in Toss'],
       images: [
         `${base}images/daedong-matmap-gantt.png`,
         `${base}images/daedong-matmap-system.png`,
@@ -41,14 +42,16 @@ function Projects() {
       period: '2023.09 — 2023.11',
       type: 'Team',
       summary:
-        '영수증·냉장고 재료 관리를 기반으로 레시피를 공유하는 웹 서비스입니다.',
+        '영수증·냉장고 재료 관리를 기반으로 레시피를 공유하는 웹 서비스입니다. 백엔드 데이터 구조 전반을 맡아 ERD 설계부터 인증, 조회 성능까지 담당했습니다.',
       role: [
-        '백엔드 ERD 및 아키텍처 설계',
-        'JWT 기반 인증/인가 구조 설계',
-        'PostgreSQL 인덱싱으로 조회 성능 최적화',
+        '백엔드 ERD 및 아키텍처 설계 (팀 리뷰를 거쳐 개정)',
+        '재료·레시피·사용자 관계를 분리해 정규화하고 데이터 중복 제거',
+        '조회 패턴을 기준으로 PostgreSQL 인덱스를 설계해 스캔 범위 축소',
+        'JWT 기반 인증/인가 구조 설계로 사용자별 데이터 접근 범위 분리',
       ],
-      result: '데이터베이스 정규화 및 페이지 로딩 속도 약 30% 개선',
-      tech: ['Python', 'Django', 'DRF', 'PostgreSQL', 'JWT', 'Docker', 'AWS'],
+      result: '스키마 정규화와 인덱싱으로 페이지 로딩 시간 약 30% 단축, 데이터 정합성 확보',
+      solvingCase: 'Case 02',
+      tech: ['Python', 'Django', 'DRF', 'PostgreSQL', '정규화', '인덱싱', 'JWT', 'Docker', 'AWS'],
       images: [
         `${base}images/ndjango-erd1.png`,
         `${base}images/ndjango-architecture.png`,
@@ -61,14 +64,16 @@ function Projects() {
       subtitle: '팀 프로젝트 · ESTsoft 백엔드 캠프',
       period: '2023.07 — 2023.08',
       type: 'Team',
-      summary: 'AI 챗봇이 상담을 도와주는 중고 거래 서비스입니다.',
+      summary:
+        'AI 챗봇이 상담을 도와주는 중고 거래 서비스입니다. 팀 리더로서 형상 관리와 백엔드 안정화를 함께 맡았습니다.',
       role: [
-        '팀 리더 · GitHub 버전 관리',
+        '팀 리더 · GitHub 브랜치 전략 수립과 병합 충돌 정리, 코드 리뷰 진행',
         '실시간 채팅 및 거래 API 안정화',
-        'WebSocket 통합과 캐싱 레이어 도입으로 응답 최적화',
+        'WebSocket 통합과 캐싱 레이어 도입, 반복 조회 쿼리에 인덱스 추가',
       ],
-      result: 'WebSocket · 캐싱 · 인덱싱 조합이 실시간 성능에 주는 영향을 검증',
-      tech: ['Django', 'PostgreSQL', 'Python', 'OpenAI API', 'Docker', 'AWS'],
+      result:
+        '반복 조회를 캐시로, 대기 시간을 WebSocket으로 분리하면서 "어디를 캐시하고 어디를 쿼리로 풀어야 하는지"에 대한 판단 기준을 얻었습니다.',
+      tech: ['Django', 'PostgreSQL', 'Python', 'WebSocket', 'OpenAI API', 'Docker', 'AWS'],
       images: [
         `${base}images/preview-jhc1.png`,
         `${base}images/preview-jhc2.png`,
@@ -80,14 +85,17 @@ function Projects() {
       subtitle: '팀 프로젝트',
       period: '2023.06 — 2023.07',
       type: 'Team',
-      summary: '개인 일정과 기록을 관리하는 웹 블로그 애플리케이션입니다.',
+      summary:
+        '개인 일정과 기록을 관리하는 웹 블로그 애플리케이션입니다. 데이터가 쌓이며 느려진 검색을 쿼리 관점에서 개선했습니다.',
       role: [
-        '팀 리더 · GitHub 버전 관리 및 Hotfix 대응',
-        '검색 기능 구현',
-        'PostgreSQL Full-Text Search 도입, 쿼리 분할 처리',
+        '팀 리더 · GitHub 버전 관리 및 운영 중 Hotfix 대응',
+        '검색 기능 구현 및 느린 요청 원인 추적',
+        '실행 계획을 확인해 LIKE 조회를 PostgreSQL Full-Text Search로 전환',
+        '무거운 단일 쿼리를 목적별로 분할해 인덱스를 타도록 재작성',
       ],
-      result: '검색 속도 2배 향상',
-      tech: ['Python', 'Django', 'PostgreSQL', 'JavaScript', 'Docker'],
+      result: '검색 응답 속도 2배 향상',
+      solvingCase: 'Case 01',
+      tech: ['Python', 'Django', 'PostgreSQL', 'Full-Text Search', 'JavaScript', 'Docker'],
       images: [],
       github: 'https://github.com/minyoung0303/MYLOG',
     },
@@ -100,8 +108,9 @@ function Projects() {
           <span className="section-kicker">Projects</span>
           <h2 className="section-title">주요 프로젝트</h2>
           <p className="section-lead">
-            문제 정의부터 설계, 성능 개선까지. 직접 손으로 만들고 수치로
-            검증한 결과들입니다.
+            데이터 구조 설계와 API 구현, 성능 개선을 직접 담당한
+            프로젝트입니다. 각 항목은 무엇을 맡았고 무엇이 달라졌는지를
+            기준으로 정리했습니다.
           </p>
         </div>
 
@@ -134,6 +143,12 @@ function Projects() {
                 <div className="project-result">
                   <h4 className="project-label">성과</h4>
                   <p>{project.result}</p>
+                  {project.solvingCase && (
+                    <a className="project-solving-link" href="#problem-solving">
+                      문제 해결 경험 {project.solvingCase}에서 원인 분석 과정
+                      보기 →
+                    </a>
+                  )}
                 </div>
               </div>
 
