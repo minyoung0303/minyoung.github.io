@@ -1,0 +1,500 @@
+/* ============================================================
+   Problem Solving section
+
+   구조: 좌측 사례 목록(sticky) + 우측 상세. 탭 패턴.
+   상세를 문서 흐름에 끼워 넣지 않으므로 목록 위치가 흔들리지 않고,
+   오버레이가 아니라 일반 본문 폭에서 읽으므로 가독성이 유지된다.
+
+   About(--bg)과 Skills(--surface) 사이에 놓이므로, 양쪽과 모두 구분되는
+   --surface-2 밴드를 써서 이 섹션을 시각적으로 강조한다.
+   ============================================================ */
+.ps {
+  background: var(--surface-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* --- step legend --------------------------------------------------------- */
+.ps-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.ps-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 6px 14px 6px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.ps-step:not(:last-child)::after {
+  content: '→';
+  margin-left: 0.35rem;
+  color: var(--line-strong);
+  font-size: 0.85rem;
+}
+
+.ps-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 2px 6px;
+}
+
+.ps-step-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   좌우 분할
+   ============================================================ */
+.ps-layout {
+  display: grid;
+  /*
+    목록에는 키워드와 결과만 있으므로 폭을 아낀다.
+    상세가 좌우 2단으로 나뉘기 때문에 오른쪽 지면이 넓어야 한 줄에 담기는
+    글자 수가 확보된다.
+  */
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+
+/* ============================================================
+   좌: 사례 목록
+   ============================================================ */
+.ps-rail {
+  position: sticky;
+  top: calc(var(--nav-h) + 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ps-rail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.05rem 1.15rem;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.ps-rail-item:hover {
+  border-color: var(--line-strong);
+  border-left-color: var(--accent-bright);
+}
+
+.ps-rail-item.active {
+  border-color: rgba(18, 135, 90, 0.28);
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.ps-rail-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/*
+  카드 안에서 초록색은 결과 한 곳에만 쓴다.
+  번호와 키워드까지 초록이면 시선이 분산되어 결과가 묻힌다.
+*/
+.ps-index {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 9px;
+  white-space: nowrap;
+}
+
+.ps-rail-item.active .ps-index {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line-strong);
+}
+
+/*
+  키워드 라벨.
+  한글이 섞이면 mono 폰트에 글리프가 없어 폰트 폴백으로 깨져 보이므로
+  본문과 같은 sans 계열을 쓴다. 색은 흑회색으로 두어 결과와 역할을 나눈다.
+*/
+.ps-tag {
+  font-family: inherit;
+  font-size: 0.89rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.45;
+  text-transform: none;
+  color: var(--ink-2);
+}
+
+/* 클릭하지 않는 사람도 성과는 보이도록 목록에 결과를 노출한다 */
+.ps-rail-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--accent-strong);
+}
+
+.ps-rail-metric i {
+  flex: none;
+  font-size: 0.74rem;
+  color: var(--accent);
+}
+
+/* ============================================================
+   우: 상세
+   사례마다 내용 길이가 달라 섹션 높이가 흔들리므로 최소 높이를 준다.
+   ============================================================ */
+.ps-detail {
+  /* 목록 높이와 비슷한 선에서 바닥을 깔아, 사례를 바꿀 때 아래 섹션이 덜 들썩이게 한다 */
+  min-height: 520px;
+  padding: clamp(1.1rem, 1.9vw, 1.45rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.ps-detail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.ps-detail-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-bottom: 0.95rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* 제목은 목록에서 빼고 여기에만 두므로, 상세의 시작점으로 확실히 잡아준다 */
+.ps-detail-title {
+  font-size: clamp(1.18rem, 2.4vw, 1.48rem);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.ps-context {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* --- 4단 흐름 ------------------------------------------------------------ */
+/*
+  4단 배치.
+  세로로만 쌓으면 상세가 한 화면을 넘어가므로, 남는 가로 폭을 쓴다.
+  - 문제: 산문이라 한 줄 전체를 쓴다
+  - 원인 분석 / 해결: 불릿 목록이라 좁은 폭을 견딘다. 좌우로 마주 보게 둔다
+  - 결과: 지표 카드가 가로로 놓여야 하므로 한 줄 전체를 쓴다
+*/
+.ps-flow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    'problem  problem'
+    'analysis solution'
+    'result   result';
+  gap: 0.9rem 1.1rem;
+  align-items: start;
+}
+
+.ps-block {
+  position: relative;
+  padding-left: 0.95rem;
+  border-left: 2px solid var(--line-strong);
+}
+
+.ps-block--problem {
+  grid-area: problem;
+}
+
+.ps-block--analysis {
+  grid-area: analysis;
+}
+
+.ps-block--solution {
+  grid-area: solution;
+}
+
+.ps-block--result {
+  grid-area: result;
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.85rem 0.95rem 0.95rem;
+}
+
+/* 단계 이름(문제 / 원인 분석 / 해결 / 결과)은 context 와 같은 크기로 둔다 */
+.ps-block-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.ps-block-label em {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.ps-block--result .ps-block-label {
+  color: var(--accent-strong);
+}
+
+.ps-block--result .ps-block-label em {
+  color: var(--accent);
+}
+
+.ps-block-text {
+  font-size: 0.95rem;
+  line-height: 1.78;
+  color: var(--ink-2);
+}
+
+.ps-block-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ps-block-list li {
+  position: relative;
+  padding-left: 1.05rem;
+  font-size: 0.95rem;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+
+.ps-block-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.64em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.ps-block-list--do li::before {
+  background: var(--accent);
+}
+
+/* --- 결과 지표 ---------------------------------------------------------- */
+.ps-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ps-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.65rem 0.95rem;
+  background: var(--surface);
+  border: 1px solid rgba(18, 135, 90, 0.2);
+  border-radius: var(--radius-sm);
+  min-width: 0;
+}
+
+/*
+  지표 값에는 '정합성 확보', '지표 신뢰도' 처럼 한글이 들어온다.
+  mono 폰트에는 한글 글리프가 없어 폴백이 일어나며 자형과 baseline 이 깨지므로
+  제목과 같은 sans 계열을 쓴다.
+*/
+.ps-metric-value {
+  font-family: inherit;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--accent-strong);
+}
+
+.ps-metric-label {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.ps-result-note {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(18, 135, 90, 0.25);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--accent-strong);
+}
+
+/* 스택과 사례 이동을 한 줄에 묶어 구분선과 여백을 한 번만 쓴다 */
+.ps-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.95rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+/* --- 사례 이동 ---------------------------------------------------------- */
+.ps-detail-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.ps-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ps-nav i {
+  font-size: 0.68rem;
+}
+
+.ps-nav:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.ps-nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ps-detail-count {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ============================================================
+   좁은 화면
+   ============================================================ */
+
+/*
+  상세 폭이 좁아지면 2단에서 한 줄에 담기는 글자 수가 너무 적어진다.
+  가독성이 세로 길이보다 우선이므로 한 단으로 되돌린다.
+*/
+@media (max-width: 780px) {
+  .ps-flow {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'problem'
+      'analysis'
+      'solution'
+      'result';
+  }
+}
+
+/* 목록을 가로 스크롤 띠로 접어 상세가 바로 아래에 오게 한다 */
+@media (max-width: 900px) {
+  .ps-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .ps-rail {
+    position: static;
+    flex-direction: row;
+    gap: 0.45rem;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ps-rail-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 0.65rem 0.85rem;
+  }
+
+  /* 가로 띠에서는 결과까지 넣으면 칩이 지나치게 넓어진다. 결과는 상세에서 읽는다 */
+  .ps-rail-metric {
+    display: none;
+  }
+
+  .ps-detail {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .ps-detail-foot {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .ps-detail-count {
+    order: -1;
+    width: 100%;
+    text-align: center;
+  }
+  .ps-metric {
+    width: 100%;
+  }
+}
