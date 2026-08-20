@@ -40,10 +40,25 @@
   font-weight: 600;
 }
 
+.skill-card-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
 .skill-card-title {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--ink);
+}
+
+.skill-card-note {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--muted);
 }
 
 .skill-list {
@@ -70,11 +85,87 @@
   color: var(--muted);
 }
 
+/* ============================================================
+   새로 배워서 적용한 기술 (자기주도 학습 근거)
+   ============================================================ */
+.skills-learning {
+  margin-top: 1.4rem;
+  padding: clamp(1.6rem, 3vw, 2.2rem);
+  background: var(--accent-soft);
+  border: 1px solid rgba(18, 135, 90, 0.18);
+  border-radius: var(--radius);
+}
+
+.skills-learning-head {
+  max-width: 640px;
+  margin-bottom: 1.6rem;
+}
+
+.skills-learning-title {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.skills-learning-lead {
+  margin-top: 0.55rem;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.skills-learning-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-learning-item {
+  background: var(--surface);
+  border: 1px solid rgba(18, 135, 90, 0.14);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1rem 1.15rem;
+}
+
+.skills-learning-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.skills-learning-tech {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.skills-learning-when {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.skills-learning-what {
+  font-size: 0.87rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
 @media (max-width: 720px) {
   .skills-grid {
     grid-template-columns: 1fr;
   }
   .skill-card {
     padding: 1.5rem;
+  }
+  .skills-learning-list {
+    grid-template-columns: 1fr;
   }
 }

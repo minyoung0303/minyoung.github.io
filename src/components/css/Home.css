@@ -171,6 +171,10 @@
 
 /* at-a-glance stats */
 .home-stats {
+  /* 값 폰트 크기를 변수로 두어, 축소된 값도 동일한 박스 높이를 공유하게 한다 */
+  --stat-size: clamp(1.6rem, 4vw, 2.2rem);
+  --stat-lh: 1.15;
+
   margin-top: 3.4rem;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -186,11 +190,27 @@
   gap: 0.25rem;
 }
 
+/*
+  값 박스는 폰트 크기와 무관하게 항상 같은 높이(--stat-size × --stat-lh)를 갖고,
+  텍스트를 아래쪽에 붙인다. 이렇게 해야 축소된 값이 있어도 네 칸의 라벨이
+  같은 선에 정렬된다.
+*/
 .home-stat-value {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  display: flex;
+  align-items: flex-end;
+  min-height: calc(var(--stat-size) * var(--stat-lh));
+  font-size: var(--stat-size);
+  line-height: var(--stat-lh);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #fff;
+  white-space: nowrap;
+}
+
+/* 지표 문자열이 긴 경우(예: 10초→2초) 컬럼을 넘지 않도록 축소 */
+.home-stat-value.is-long {
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  letter-spacing: -0.02em;
 }
 
 .home-stat-label {
